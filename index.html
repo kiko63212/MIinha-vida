@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para o Amor da Minha Vida</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Para o Amor da Minha Vida 💖</h1>
+
+    <p id="mensagem" class="mensagem"></p>
+
+    <ul>
+      <li>Seu sorriso ilumina meus dias</li>
+      <li>Você me inspira a ser uma pessoa melhor</li>
+      <li>Ao seu lado, tudo faz sentido</li>
+      <li>Te amo mais a cada dia</li>
+    </ul>
+
+    <a href="coracao.html">
+      <button>Clique aqui, meu amor</button>
+    </a>
+  </div>
+
+  <!-- Animação de flores e corações -->
+  <div id="flores"></div>
+
+  <script>
+    // Texto com digitação suave
+    const texto = `Enquanto eu fazia esse site eu ficava lembrando de tudo que passamos, foi bem desafiador estarmos juntos, a distância, nossas brigas, a falta de dinheiro para poder te ver... mas hoje sou grato por tudo ter dado certo e por poder, enfim, estar com você.
+
+Hoje posso dizer que te amo sem ter medo de você não sentir o mesmo. Sou feliz estando junto de você, mesmo com as várias diferenças.
+
+Vejo o quanto você é linda e perfeita em todos os sentidos. Sinto sua falta, muita mesmo. Sinto que não posso mais viver sem ter minha gatinha do meu lado.
+
+Eu juro que farei de tudo para lhe fazer feliz e te dar tudo que ainda não posso no momento.
+
+Obrigado por cuidar de mim, por me apoiar nos meus momentos ruins e por nunca ter me abandonado.
+
+Eu só digo: "Eu amo você, minha Mariazinha, amor da minha vida... e sempre vou lhe amar, meu amor."`;
+
+    const p = document.getElementById('mensagem');
+    let i = 0;
+
+    function digitar() {
+      if (i < texto.length) {
+        p.innerHTML += texto.charAt(i) === '\n' ? '<br><br>' : texto.charAt(i);
+        i++;
+        setTimeout(digitar, 30);
+      }
+    }
+    digitar();
+
+    // Animação de flores e corações caindo
+    function criarElementoCaindo() {
+      const elemento = document.createElement('div');
+      elemento.classList.add('caindo');
+
+      // Corações ❤️ ou flores 🌸
+      elemento.textContent = Math.random() > 0.5 ? '🌸' : '❤️';
+
+      elemento.style.left = Math.random() * 100 + 'vw';
+      elemento.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      elemento.style.fontSize = (Math.random() * 24 + 16) + 'px';
+
+      document.body.appendChild(elemento);
+
+      setTimeout(() => {
+        elemento.remove();
+      }, 5000);
+    }
+
+    setInterval(criarElementoCaindo, 300);
+  </script>
+</body>
+</html>
