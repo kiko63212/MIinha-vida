@@ -1,78 +1,80 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-image: url('minha-namorada.jpg'); /* Troque pelo nome correto da imagem */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-x: hidden;
-  color: white;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para o Amor da Minha Vida</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- MINI PLAYER DE MÚSICA -->
+  <div class="audio-player">
+    <audio id="musica" controls>
+      <source src="mygirl.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+  </div>
 
-.container {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 800px;
-  margin: 80px auto;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-  position: relative;
-  z-index: 2;
-}
+  <div class="container">
+    <h1>Para o Amor da Minha Vida 💖</h1>
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
+    <p id="mensagem" class="mensagem"></p>
 
-.mensagem {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  text-align: justify;
-  margin-bottom: 30px;
-  white-space: pre-wrap;
-}
+    <ul>
+      <li>Seu sorriso ilumina meus dias</li>
+      <li>Você me inspira a ser uma pessoa melhor</li>
+      <li>Ao seu lado, tudo faz sentido</li>
+      <li>Te amo mais a cada dia</li>
+    </ul>
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-li::before {
-  content: "❤️ ";
-}
+    <!-- Botão para página do coração -->
+    <a href="coracao.html">
+      <button>Clique aqui, meu amor</button>
+    </a>
+  </div>
 
-button {
-  padding: 14px 28px;
-  font-size: 1rem;
-  background-color: #ff69b4;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  cursor: pointer;
-  margin-top: 30px;
-  transition: background-color 0.3s, transform 0.2s;
-}
-button:hover {
-  background-color: #ff1493;
-  transform: scale(1.05);
-}
+  <!-- Animação de flores e corações -->
+  <div id="flores"></div>
 
-/* Corações e flores caindo */
-.caindo {
-  position: fixed;
-  top: -40px;
-  z-index: 1;
-  animation: cair linear forwards;
-  opacity: 0.9;
-}
+  <script>
+    // Texto com digitação suave
+    const texto = `Enquanto eu fazia esse site eu ficava lembrando de tudo que passamos, foi bem desafiador estarmos juntos, a distância, nossas brigas, a falta de dinheiro para poder te ver... mas hoje sou grato por tudo ter dado certo e por poder, enfim, estar com você.
 
-@keyframes cair {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
+Hoje posso dizer que te amo sem ter medo de você não sentir o mesmo. Sou feliz estando junto de você, mesmo com as várias diferenças.
+
+Vejo o quanto você é linda e perfeita em todos os sentidos. Sinto sua falta, muita mesmo. Sinto que não posso mais viver sem ter minha gatinha do meu lado.
+
+Eu juro que farei de tudo para lhe fazer feliz e te dar tudo que ainda não posso no momento.
+
+Obrigado por cuidar de mim, por me apoiar nos meus momentos ruins e por nunca ter me abandonado.
+
+Eu só digo: "Eu amo você, minha Mariazinha, amor da minha vida... e sempre vou lhe amar, meu amor."`;
+
+    const p = document.getElementById('mensagem');
+    let i = 0;
+
+    function digitar() {
+      if (i < texto.length) {
+        p.innerHTML += texto.charAt(i) === '\n' ? '<br><br>' : texto.charAt(i);
+        i++;
+        setTimeout(digitar, 30);
+      }
+    }
+    digitar();
+
+    // Animação de flores e corações caindo
+    function criarElementoCaindo() {
+      const elemento = document.createElement('div');
+      elemento.classList.add('caindo');
+      elemento.textContent = Math.random() > 0.5 ? '🌸' : '❤️';
+      elemento.style.left = Math.random() * 100 + 'vw';
+      elemento.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      elemento.style.fontSize = (Math.random() * 24 + 16) + 'px';
+      document.body.appendChild(elemento);
+      setTimeout(() => elemento.remove(), 5000);
+    }
+
+    setInterval(criarElementoCaindo, 300);
+  </script>
+</body>
+</html>
