@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- MINI PLAYER DE MÚSICA -->
+  <div class="audio-player">
+    <audio id="musica" controls>
+      <source src="mygirl.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+  </div>
+
   <div class="container">
     <h1>Para o Amor da Minha Vida 💖</h1>
 
@@ -19,6 +27,7 @@
       <li>Te amo mais a cada dia</li>
     </ul>
 
+    <!-- Botão para página do coração -->
     <a href="coracao.html">
       <button>Clique aqui, meu amor</button>
     </a>
@@ -57,19 +66,12 @@ Eu só digo: "Eu amo você, minha Mariazinha, amor da minha vida... e sempre vou
     function criarElementoCaindo() {
       const elemento = document.createElement('div');
       elemento.classList.add('caindo');
-
-      // Corações ❤️ ou flores 🌸
       elemento.textContent = Math.random() > 0.5 ? '🌸' : '❤️';
-
       elemento.style.left = Math.random() * 100 + 'vw';
       elemento.style.animationDuration = (Math.random() * 3 + 2) + 's';
       elemento.style.fontSize = (Math.random() * 24 + 16) + 'px';
-
       document.body.appendChild(elemento);
-
-      setTimeout(() => {
-        elemento.remove();
-      }, 5000);
+      setTimeout(() => elemento.remove(), 5000);
     }
 
     setInterval(criarElementoCaindo, 300);
